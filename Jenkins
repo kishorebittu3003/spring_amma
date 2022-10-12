@@ -8,14 +8,14 @@ pipeline {
         }
         stage('build') {
             steps {
-                withSonarQubeEnv('SONAR_SELF_HOSTED') {
-                    sh  'mvn clean package sonar:sonar'
+                 {
+                    sh  'mvn clean package '
 
                 }
                 
             }
         }
-         stage ('Exec Maven') {
+        stage ('Exec Maven') {
             steps {
                 rtMavenRun (
                     tool: MAVEN_TOOL, // Tool name from Jenkins configuration
